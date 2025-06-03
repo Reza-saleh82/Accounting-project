@@ -11,7 +11,7 @@ logs
 dist
 dist-ssr
 *.local
-/pro
+pro
 
 # Editor directories and files
 .vscode/*
