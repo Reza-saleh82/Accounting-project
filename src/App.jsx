@@ -1,10 +1,9 @@
-import React from 'react';
-import AddName from './components/AddName';
-import ShowName from './components/ShowName';
-import Example from './components/Example';
 import './css/home.css';
 import ProductProvider from './context/NameContext';
-import Nav from './components/Navbar';
+import AddName from './components/ADD/AddName';
+import ShowName from './components/Show/ShowName';
+import Example from './components/Modole/Example';
+import Nav from './components/Nav/Navbar.jsx'
 
 export default function App() {
   return (
