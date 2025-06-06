@@ -1,7 +1,7 @@
 import { useReducer, useEffect } from 'react'; // اضافه کردن useEffect
 import { Container } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
-import { useProductContext } from '../context/NameContext';
+import { useProductContext } from '../../context/NameContext';
 
 function BasicExample() {
   const { products, setNewProducts } = useProductContext();

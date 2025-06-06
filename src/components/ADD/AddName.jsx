@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { AiOutlineSave } from 'react-icons/ai';
-import { useProductContext } from '../context/NameContext';
+import { useProductContext } from '../../context/NameContext';
 import Container from 'react-bootstrap/Container';
 
 function AddName() {

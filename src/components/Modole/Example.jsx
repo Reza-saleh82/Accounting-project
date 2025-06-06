@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { useProductContext } from '../context/NameContext';
+import { useProductContext } from '../../context/NameContext';
 
 function Example() {
   const { show, setShow, editId, edite, handleEdit } = useProductContext();

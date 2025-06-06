@@ -2,7 +2,7 @@ import React from 'react';
 import { BiX } from 'react-icons/bi';
 import { AiFillSetting } from 'react-icons/ai';
 import Button from 'react-bootstrap/Button';
-import { useProductContext } from '../context/NameContext';
+import { useProductContext } from '../../context/NameContext';
 
 function ShowName() {
   const { products, newProducts, setProducts, setEdite, setShow, setEditId } = useProductContext();
