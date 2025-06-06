@@ -1,32 +1,215 @@
 .box{
     display: flex;
-    border: 2px solid black;
+    border: 2px solid #e0e0e0;
     border-radius: 20px;
     width: 1000px;
     height: 400px;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
     flex-direction: column;
-    overflow: auto;
-    padding: 10px;
+    overflow-y: auto;
+    padding: 20px;
+    position: relative;
+    margin-top: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
-.ListBox{
+
+body[data-theme='dark'] .box {
+    background-color: #343a40;
+    border-color: #495057;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.ListBox {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin: 10px;
-    font-size: x-large;
-}
-.Border{
-    border: 2px solid black;
-    padding: 10px 100px;
-    border-radius: 20px;
-}
-.BtnE{
-    padding: '1px 4px';
-    margin: 0 10px;
-    width: 100px;
-    height: 30px;
+    justify-content: flex-start;
     align-items: center;
+    margin: 20px 0;
+    padding: 15px 20px;
+    font-size: 16px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+body[data-theme='dark'] .ListBox {
+    background-color: #454d55;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.ListBox:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+body[data-theme='dark'] .ListBox:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.Border {
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0;
+}
+
+body[data-theme='dark'] .Border {
+    background-color: transparent;
+}
+
+.Border > div:first-child {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0;
+}
+
+body[data-theme='dark'] .Border > div:first-child {
+    /* No major changes needed */
+}
+
+.Border > div:first-child span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 15px;
+    color: #495057;
+    white-space: nowrap;
+    font-weight: 400;
+    background-color: #f2f2f2;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+body[data-theme='dark'] .Border > div:first-child span {
+    color: #e9ecef;
+    background-color: #5a6268;
+}
+
+.Border > div:first-child span:hover {
+    background-color: #f2f2f2;
+    transform: none;
+}
+
+body[data-theme='dark'] .Border > div:first-child span:hover {
+     background-color: #5a6268; /* Keep same background on hover in dark mode */
+}
+
+.Border > div:first-child span span {
+    color: #0d6efd; /* Match blue from image */
+    font-weight: 700; /* Make label bold */
+    font-size: 15px;
+    background-color: transparent;
+    padding: 0;
+    margin-right: 5px;
+}
+
+body[data-theme='dark'] .Border > div:first-child span span {
+    color: #74c0fc; /* Lighter blue for dark mode */
+}
+
+.Border > div:last-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin-top: 15px; /* Adjust margin top */
+}
+
+body[data-theme='dark'] .Border > div:last-child {
+    /* No major changes needed */
+}
+
+.Border h6 {
+    color: #495057;
+    font-size: 14px; /* Adjust font size */
+    font-weight: 500;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+body[data-theme='dark'] .Border h6 {
+    color: #e9ecef;
+}
+
+.BtnE {
+    padding: 8px 16px; /* Adjust padding */
+    width: auto; /* Auto width based on content */
+    height: auto; /* Auto height based on content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px; /* Slightly smaller border radius */
+    transition: all 0.2s ease;
+    font-size: 14px; /* Adjust font size */
+    font-weight: 500;
+    color: #0d6efd; /* Match blue from image */
+    border: 1px solid #0d6efd; /* Match border from image */
+    background-color: transparent; /* Transparent background */
+}
+
+body[data-theme='dark'] .BtnE {
+    color: #74c0fc;
+    border-color: #74c0fc;
+    background-color: transparent;
+}
+
+.BtnE:hover {
+    background-color: #0d6efd; /* Blue background on hover */
+    color: white; /* White text on hover */
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(13, 110, 253, 0.2); /* Blue shadow on hover */
+}
+
+body[data-theme='dark'] .BtnE:hover {
+    background-color: #74c0fc;
+    color: #343a40;
+    box-shadow: 0 2px 4px rgba(116, 192, 252, 0.3);
+}
+
+input[type="checkbox"] {
+    width: 18px; /* Slightly larger checkbox */
+    height: 18px; /* Slightly larger checkbox */
+    margin: 0;
+    cursor: pointer;
+    accent-color: #0d6efd; /* Blue accent color */
+}
+
+body[data-theme='dark'] input[type="checkbox"] {
+    accent-color: #74c0fc;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+p {
+    color: #868e96;
+    font-size: 15px;
+    font-weight: 500;
     text-align: center;
-    padding: '1px 4px';
+    margin: 20px 0;
+}
+
+body[data-theme='dark'] p {
+    color: #ced4da;
 }

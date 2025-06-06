@@ -26,12 +26,12 @@ function AddName() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="name ? "
-            style={{ padding: '5px', marginRight: '10px', borderRadius: '10px', width: '300px'}}
+            style={{ padding: '5px', marginRight: '10px', borderRadius: '10px', width: '500px',fontSize:'x-large'}}
           />
           <Button
             variant="dark"
             onClick={handleSubmit}
-            style={{ padding: '5px 10px', borderRadius: '50%', marginBottom: '8px'}}
+            style={{ padding: '5px 10px', borderRadius: '50%', marginBottom: '8px',fontSize:'x-large'}}
           >
             <AiOutlineSave />
           </Button>

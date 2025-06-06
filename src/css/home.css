@@ -10,3 +10,9 @@
     align-items: center;
     justify-content: center;
 }
+
+body[data-theme='dark'] .box2 {
+    background-color: #343a40;
+    color: #e9ecef;
+    /* Add other dark mode styles as needed for elements inside box2 */
+}

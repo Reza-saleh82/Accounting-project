@@ -1,21 +1,21 @@
-import { useReducer, useEffect } from 'react'; // اضافه کردن useEffect
-import { Container } from 'react-bootstrap';
+import { useReducer, useEffect, useState } from 'react';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 import { useProductContext } from '../../context/NameContext';
+import { FaSearch } from "react-icons/fa";
 
 function BasicExample() {
   const { products, setNewProducts } = useProductContext();
 
-  // مقدار اولیه state برای تعیین نوع نمایش
-  const initialState = { view: 'all' }; // 'all', 'cart', 'others'
+  const initialState = { view: 'all' };
 
   const reducer = (state, action) => {
     switch (action.type) {
-      case 'btn1': // محصولات
+      case 'btn1':
         return { view: 'all' };
-      case 'btn2': // سبد خرید
+      case 'btn2':
         return { view: 'cart' };
-      case 'btn3': // بقیه محصولات
+      case 'btn3':
         return { view: 'others' };
       default:
         return state;
@@ -24,22 +24,35 @@ function BasicExample() {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  // استفاده از useEffect برای به‌روزرسانی newProducts بعد از تغییر state.view
   useEffect(() => {
     if (state.view === 'cart') {
-      setNewProducts(products.filter((item) => item.change)); // محصولات چک‌شده
+      setNewProducts(products.filter((item) => item.change));
     } else if (state.view === 'others') {
-      setNewProducts(products.filter((item) => !item.change)); // محصولات چک‌نشده
+      setNewProducts(products.filter((item) => !item.change));
     } else {
-      setNewProducts([]); // برای 'all'، نیازی به newProducts نداریم
+      setNewProducts([]);
     }
-  }, [state.view, products, setNewProducts]); // وابستگی‌ها
+  }, [state.view, products, setNewProducts]);
 
   return (
     <div style={{ backgroundColor: 'black' }}>
       <Container>
-        <Nav activeKey="/home" style={{ flexDirection: 'row-reverse' }}>
-          <Nav.Item style={{ margin: '10px 20px' }}>
+        <Nav activeKey="/home">
+          <Form inline className="my-2">
+            <Row>
+              <Col xs="auto" style={{margin:'0 -10px'}}>
+                <Form.Control
+                  type="text"
+                  placeholder="Search"
+                  className=" mr-sm-2"
+                />
+              </Col>
+              <Col xs="auto" style={{margin:'0 -10px'}}>
+                <Button variant="outline-secondary" type="submit"><FaSearch /></Button>
+              </Col>
+            </Row>
+          </Form>
+          <Nav.Item style={{ margin: '10px 20px' }} className="ms-auto">
             <Nav.Link
               onClick={() => dispatch({ type: 'btn1' })}
               style={{ margin: '0', color: 'white' }}
