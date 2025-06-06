@@ -3,6 +3,7 @@ import { BiX } from 'react-icons/bi';
 import { AiFillSetting } from 'react-icons/ai';
 import Button from 'react-bootstrap/Button';
 import { useProductContext } from '../../context/NameContext';
+import './ShowName.css'
 
 function ShowName() {
   const { products, newProducts, setProducts, setEdite, setShow, setEditId } = useProductContext();
@@ -24,8 +25,8 @@ function ShowName() {
   const displayProducts = newProducts.length > 0 ? newProducts : products;
 
   return (
-    <div style={{ margin: '20px' }} className="box">
-      <div>
+    <div style={{ margin: '20px', display: 'flex', justifyContent: 'center' }}>
+      <div className="box">
         {displayProducts.length === 0 ? (
           <p>محصولی وجود ندارد</p>
         ) : (
@@ -34,48 +35,46 @@ function ShowName() {
               {displayProducts.map((item) => (
                 <li
                   key={item.id}
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'start',
-                    alignItems: 'center',
-                    margin :'10',
-                    fontSize:'x-large'
-                  }}
+                  className='ListBox'
                 >
-                  <span style={{ margin: '10px' }}>
-                    <span style={{ color: 'blue', fontSize: 'large', margin: '3px' }}> ID: </span>
-                    {item.id}
-                  </span>
-                  <span style={{ margin: '10px' }}>
-                    <span style={{ color: 'blue', fontSize: 'large', margin: '3px' }}> name: </span>
-                    {item.name}
-                  </span>
-                  <span style={{ margin: '10px' }}>
-                    <span style={{ color: 'blue', fontSize: 'large', margin: '3px' }}> date: </span>
-                    {item.date}
-                  </span>
-                  <Button
-                    variant="outline-primary"
-                    style={{ padding: '1px 4px', marginLeft: '5px' }}
-                    onClick={() => setProducts(products.filter((select) => select.id !== item.id))}
-                  >
-                    <BiX />
-                  </Button>
-                  <Button
-                    variant="outline-primary"
-                    style={{ padding: '1px 4px', marginLeft: '5px' }}
-                    onClick={() => handleShow(item.id, item.name)}
-                  >
-                    <AiFillSetting />
-                  </Button>
-                  <input
-                    type="checkbox"
-                    style={{ margin: '5px 2px 5px 15px' }}
-                    checked={item.change}
-                    onChange={(e) => handleChange(e, item.id)}
-                  />
-                  <h6>اتمام موجودی</h6>
+                  <div className='Border'>
+                    <div>
+                      <span style={{ margin: '10px' }}>
+                        <span style={{ color: 'blue', fontSize: 'large', margin: '3px' }}> ID: </span>
+                        {item.id}
+                      </span>
+                      <span style={{ margin: '10px' }}>
+                        <span style={{ color: 'blue', fontSize: 'large', margin: '3px' }}> name: </span>
+                        {item.name}
+                      </span>
+                      <span style={{ margin: '10px' }}>
+                        <span style={{ color: 'blue', fontSize: 'large', margin: '3px' }}> date: </span>
+                        {item.date}
+                      </span>
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'row' }}>
+                      <Button
+                        variant="outline-primary"
+                        onClick={() => setProducts(products.filter((select) => select.id !== item.id))}
+                        className='BtnE'
+                      >
+                        حذف
+                      </Button>
+                      <Button
+                        variant="outline-primary"
+                        onClick={() => handleShow(item.id, item.name)}
+                        className='BtnE'
+                      >
+                        تغییرات
+                      </Button>
+                      <input
+                        type="checkbox"
+                        checked={item.change}
+                        onChange={(e) => handleChange(e, item.id)}
+                      />
+                      <h6>اتمام موجودی</h6>
+                    </div>
+                  </div>
                 </li>
               ))}
             </ul>
